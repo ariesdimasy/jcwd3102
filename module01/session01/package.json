@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2"
+  }
+}
