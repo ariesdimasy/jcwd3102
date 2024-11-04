@@ -59,3 +59,65 @@ for(let i = 1; i <= 5; i++) {
     }
    
 }
+
+function removeOddNumber(arr: Array<number>){
+    let result : Array<number> = []
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] % 2 == 0){
+            result.push(arr[i])
+        }
+    }
+
+    return result
+}
+
+console.log(removeOddNumber([1,2,3,4,5,6,7,8,9,10]))
+
+function splitString(str:string){
+    let result : Array<string> = []
+    let word = ""
+    for(let i = 0; i < str.length; i++){
+        
+        if(str[i] == " "){
+            
+            result.push(word)
+            word = ""
+        } else { 
+            word += str[i]
+            if(i == str.length-1){
+                result.push(word)
+                word = ""
+            }
+        }
+    }
+
+    return result
+}
+
+console.log(splitString("Hello World")) // ["Hello"] ["Hello","World"]
+
+function stairNumber(height : number) { 
+    let counter = 1
+    //             2 <= 5; i = i + 1
+    for(let i = 1; i <= height; i++) {
+        let row = "" // ""
+        for(let j = 0; j < i; j++){
+            // if(counter < 10){
+            //     row += '0'+counter+' '
+            // } else {
+            //     row += counter+' '
+            // }
+            row += counter < 10 ? '0'+counter+' ' : counter+' ' 
+            counter++ // counter = counter + 1 = 2 
+        }
+        // row = 02 03  
+        console.log(row) // 01 
+    }
+}
+/* 
+01 
+0101
+010101
+*/
+stairNumber(5)
+stairNumber(6)
