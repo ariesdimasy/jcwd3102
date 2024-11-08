@@ -13,6 +13,7 @@ class Employee {
     constructor(name:string, type:string){
         this.name = name
         this.type = type
+       
     }
 
     set addWorkHour(workHour){
@@ -262,3 +263,5 @@ console.log( soal1(10)) // ['','','','','*','*','','','','']
 console.log( soal1(0)) // invalid
 
 console.log( soal1(1)) // ['*']
+
+

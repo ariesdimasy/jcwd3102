@@ -113,3 +113,15 @@ function intersectionObject(obj1, obj2){
 }
 
 console.log(intersectionObject({ a: 1, b:2}, {a:1, c:3 }))
+
+
+function test(obj: any){
+    for(let key of obj){
+        console.log(`${key}`)
+    }
+}
+
+test({
+    name:"Dimas",
+    age:34
+})

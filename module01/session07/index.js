@@ -89,3 +89,13 @@ function intersectionObject(obj1, obj2) {
     return result;
 }
 console.log(intersectionObject({ a: 1, b: 2 }, { a: 1, c: 3 }));
+function test(obj) {
+    for (var _i = 0, obj_1 = obj; _i < obj_1.length; _i++) {
+        var key = obj_1[_i];
+        console.log("".concat(key));
+    }
+}
+test({
+    name: "Dimas",
+    age: 34
+});
