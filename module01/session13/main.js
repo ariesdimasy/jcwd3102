@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,98 +35,52 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-console.log("eksekusi");
-setTimeout(function () {
-    console.log("eksekusi setelah 3 detik");
-}, 0);
-function buy(money, spend, cb) {
-    var left = money - spend;
-    cb(left);
-}
-function buyPromise(money, spend) {
+Object.defineProperty(exports, "__esModule", { value: true });
+// import hobbies from "./add"
+var add_1 = require("./add");
+var queue_1 = require("./queue");
+console.log((0, add_1.add)(2, 3));
+console.log(add_1.default);
+console.log(add_1.obj);
+var q1 = new queue_1.default();
+q1.add(1);
+q1.add(2);
+q1.add(3);
+q1.add(4);
+function promiseTimeOut(seconds, processNumber) {
     return new Promise(function (resolve, reject) {
-        //let left = money - spend
-        if (money >= spend) {
-            var left = money - spend;
-            resolve(left);
+        if (seconds > 0) {
+            setTimeout(function () {
+                resolve("[LOG] queue ".concat(processNumber, " done in ").concat(seconds, " seconds"));
+            }, seconds * 1000);
         }
         else {
-            reject("gak ngadong hepeng");
+            reject("senconds must be more than 0");
         }
     });
 }
-var myMoney = 90000;
-// buy(myMoney,10000,(money1) => {
-//     console.log(" left : ",money1)
-//     buy(money1, 20000, (money1) => {
-//         console.log(" left : ", money1)
-//         buy(money1, 20000, (money1) => {
-//             console.log(" left : ", money1)
-//             buy(money1, 20000, (money1) => {
-//                 console.log(" left : ", money1)
-//                 buy(money1, 20000, (money1) => {
-//                     console.log(" left : ", money1)
-//                 })
-//             })
-//         })
-//     })
-// })
-function runAsynAwait() {
+function runProcess(q) {
     return __awaiter(this, void 0, void 0, function () {
-        var left, err_1;
+        var i, rand, res;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    console.log("satu");
+                    i = 0;
                     _a.label = 1;
                 case 1:
-                    _a.trys.push([1, 4, , 5]);
-                    return [4 /*yield*/, buyPromise(myMoney, 10000)];
+                    if (!(i < q.length)) return [3 /*break*/, 4];
+                    rand = Math.random() * 10;
+                    return [4 /*yield*/, promiseTimeOut(rand, q[i])];
                 case 2:
-                    left = _a.sent();
-                    console.log("left : ", left);
-                    return [4 /*yield*/, buyPromise(left, 20000)];
+                    res = _a.sent();
+                    console.log(res);
+                    _a.label = 3;
                 case 3:
-                    left = _a.sent();
-                    console.log("left : ", left);
-                    return [3 /*break*/, 5];
-                case 4:
-                    err_1 = _a.sent();
-                    console.log(err_1);
-                    return [3 /*break*/, 5];
-                case 5:
-                    console.log("dua");
-                    return [2 /*return*/];
+                    i++;
+                    return [3 /*break*/, 1];
+                case 4: return [2 /*return*/];
             }
         });
     });
 }
-function runSynchronous() {
-    console.log("satu");
-    buyPromise(myMoney, 10000)
-        .then(function (res) {
-        console.log(" left : ", res);
-        return buyPromise(res, 20000);
-    })
-        .then(function (res) {
-        console.log(" left : ", res);
-        return buyPromise(res, 40000);
-    })
-        .then(function (res) {
-        console.log(" left : ", res);
-        return buyPromise(res, 40000);
-    })
-        .then(function (res) {
-        console.log(" left : ", res);
-    })
-        .catch(function (err) {
-        console.log("err : ", err);
-    });
-    console.log("dua");
-}
-// runSynchronous()
-runAsynAwait();
-for (var i = 0; i <= 10; i++) {
-    console.log(i);
-}
-console.log(i);
+runProcess(q1.list);
