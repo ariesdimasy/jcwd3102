@@ -1,0 +1,9 @@
+body { 
+    background-image: url("./../images/bird-thumbnail.jpg");
+    background-size: contain;
+    
+}
+
+span { 
+    color: orange;
+}

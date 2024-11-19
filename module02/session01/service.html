@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service</title>
+    <style>
+        h2{ color: orange }
+        p { color: red;}
+        #avanza{ color:greenyellow}
+        .mobil{ color : blue}
+        .mobil2 { border: 1px solid red; color: green;}
+
+        a[href] { 
+            color: goldenrod;
+        }
+
+        .text-indent { 
+            text-indent: 2rem;
+        }
+        
+        .box { 
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            float: left;
+            /* margin-bottom: 10px; */
+            margin: 0 10px 10px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <h1> Service </h1>
+    <hr>
+    <a href="./index.html"> Home </a> | <a href="./service.html"> Service </a> 
+    <a> gak punya href </a>
+    <hr>
+    <h2>Halo</h2>
+    <p>Hai</p>
+    <p class="mobil" id="avanza"> INI AVANZA </p>
+    <p class="mobil mobil2" id="alya"> INI ALYA </p>
+    <p class="mobil" id="avanza"> INI AVANZA </p>
+
+    <p class="text-indent"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur perspiciatis maxime odio aperiam dolorem? Perspiciatis culpa voluptates deleniti et similique, recusandae, libero obcaecati praesentium hic blanditiis eius maiores sequi rerum.
+    Debitis dolorem quisquam modi facilis, quos tenetur ipsa sequi corporis, veritatis ullam aliquam officia culpa animi suscipit blanditiis magni obcaecati. Quia, doloremque impedit earum laboriosam porro consectetur sint beatae architecto?
+    Aliquam voluptate iusto dignissimos aperiam, consequuntur blanditiis consequatur temporibus recusandae. Ad nam tenetur earum rerum repellendus laboriosam, libero praesentium a labore sunt nisi soluta voluptatum tempora, officiis rem asperiores totam.
+    Unde amet debitis possimus cumque, totam sequi consectetur dignissimos aperiam sint! Ipsa, vitae exercitationem eius consequatur earum corrupti quaerat sit est sapiente iusto. Assumenda architecto soluta nobis a. Obcaecati, quae!
+    In exercitationem sint nam nobis, sed cupiditate saepe! Tenetur perspiciatis nam repudiandae culpa, quibusdam placeat provident corporis voluptas autem laborum tempora ullam ex sit quas, quae architecto dignissimos ad soluta.</p>
+
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div style="clear: both;"></div>
+
+    <canvas id="canvas" width="300" height="300" style="border:1px solid black">The current time</canvas>
+    <button onclick="hello()"> hello </button>
+    <button onclick="insertNumber()"> insert number </button>
+    <script>
+    function hello(){
+        alert("hello world")
+    }
+
+    function insertNumber(){
+        let num = prompt("please insert number")
+        alert(" your number is "+ num)
+    }
+
+    function clock() {
+        const now = new Date();
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        ctx.save();
+        ctx.clearRect(0, 0, 300, 300);
+        ctx.translate(150, 150);
+        ctx.scale(0.4, 0.4);
+        ctx.rotate(-Math.PI / 2);
+        ctx.strokeStyle = "black";
+        ctx.fillStyle = "white";
+        ctx.lineWidth = 8;
+        ctx.lineCap = "round";
+
+        // Hour marks
+        ctx.save();
+        for (let i = 0; i < 12; i++) {
+            ctx.beginPath();
+            ctx.rotate(Math.PI / 6);
+            ctx.moveTo(100, 0);
+            ctx.lineTo(120, 0);
+            ctx.stroke();
+        }
+        ctx.restore();
+
+        // Minute marks
+        ctx.save();
+        ctx.lineWidth = 5;
+        for (let i = 0; i < 60; i++) {
+            if (i % 5 !== 0) {
+            ctx.beginPath();
+            ctx.moveTo(117, 0);
+            ctx.lineTo(120, 0);
+            ctx.stroke();
+            }
+            ctx.rotate(Math.PI / 30);
+        }
+        ctx.restore();
+
+        const sec = now.getSeconds();
+        // To display a clock with a sweeping second hand, use:
+        // const sec = now.getSeconds() + now.getMilliseconds() / 1000;
+        const min = now.getMinutes();
+        const hr = now.getHours() % 12;
+
+        ctx.fillStyle = "black";
+
+        // Write image description
+        canvas.innerText = `The time is: ${hr}:${min}`;
+
+        // Write Hours
+        ctx.save();
+        ctx.rotate(
+            (Math.PI / 6) * hr + (Math.PI / 360) * min + (Math.PI / 21600) * sec,
+        );
+        ctx.lineWidth = 14;
+        ctx.beginPath();
+        ctx.moveTo(-20, 0);
+        ctx.lineTo(80, 0);
+        ctx.stroke();
+        ctx.restore();
+
+        // Write Minutes
+        ctx.save();
+        ctx.rotate((Math.PI / 30) * min + (Math.PI / 1800) * sec);
+        ctx.lineWidth = 10;
+        ctx.beginPath();
+        ctx.moveTo(-28, 0);
+        ctx.lineTo(112, 0);
+        ctx.stroke();
+        ctx.restore();
+
+        // Write seconds
+        ctx.save();
+        ctx.rotate((sec * Math.PI) / 30);
+        ctx.strokeStyle = "#D40000";
+        ctx.fillStyle = "#D40000";
+        ctx.lineWidth = 6;
+        ctx.beginPath();
+        ctx.moveTo(-30, 0);
+        ctx.lineTo(83, 0);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(0, 0, 10, 0, Math.PI * 2, true);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(95, 0, 10, 0, Math.PI * 2, true);
+        ctx.stroke();
+        ctx.fillStyle = "rgb(0 0 0 / 0%)";
+        ctx.arc(0, 0, 3, 0, Math.PI * 2, true);
+        ctx.fill();
+        ctx.restore();
+
+        ctx.beginPath();
+        ctx.lineWidth = 14;
+        ctx.strokeStyle = "#325FA2";
+        ctx.arc(0, 0, 142, 0, Math.PI * 2, true);
+        ctx.stroke();
+
+        ctx.restore();
+
+        window.requestAnimationFrame(clock);
+        }
+
+        window.requestAnimationFrame(clock);
+    </script>
+
+</body>
+</html>

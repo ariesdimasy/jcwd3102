@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+</head>
+<body>
+    <nav>
+        <hr />
+            <a href="./index.html"> Home </a> | <a href="./service.html"> Service </a>
+            | <a href="./contact.html"> Contact</a>
+        <hr />
+    </nav>
+    <form action="" method="get" >
+        <fieldset>
+            <legend> ACCOUNT SETTING </legend>
+            <div>
+                <label>Name : </label>
+                <input type="text" name="name" />
+            </div>
+    
+            <div>
+                <label for="email">Email : </label>
+                <input type="email" id="email" name="email" />
+            </div>
+            <div>
+                <label>Password : </label>
+                <input type="password" name="password" />
+            </div>
+        </fieldset>
+        
+        <div>
+            <label>Telp : </label>
+            <input type="" name="telp" />
+        </div>
+        <div>
+            <label>Desc : </label>
+            <textarea name="desc" rows="20" cols="100" ></textarea>
+        </div>
+        <div>
+            <label>Birthdate : </label>
+            <input type="date" name="date" />
+        </div>
+        <div>
+            <label>Birthdate : </label>
+            <select name="date">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <select name="month">
+                <option value="january"> January </option>
+                <option value="february"> February </option>
+                <option value="march"> March </option>
+            </select>
+            <select name="year">
+                <option> 2001 </option>
+                <option> 2002 </option>
+                <option> 2003 </option>
+                <option selected> 2004 </option>
+                <option> 2005 </option>
+                <option> 2006 </option>
+            </select>
+        </div>
+        <div>
+            <label>Hobbies : </label>
+            <input type="checkbox" name="hobbies" value="CS 1.6" /> CS 1.6
+            <input type="checkbox" name="hobbies" value="Gehsin Impact" /> Gehsin Impact
+        </div>
+        <div>
+            <label >Gender : </label>
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" value="female"> Female
+        </div>
+        <div>
+            <label >Pick a Color : </label>
+            <input type="color" name="color" > 
+           
+        </div>
+        <button type="submit"> Login </button>
+        <input type="submit" value="Login Juga">
+        <button type="button" onclick="alert('Hello world')"> Just Button</button>
+        <input type="button" value="Just Button Juga">
+    </form>
+</body>
+</html>
