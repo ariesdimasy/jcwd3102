@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&display=swap" rel="stylesheet">
     <style>
+        /* * { margin:0; padding: 0; } */
+        body { 
+            background: linear-gradient(270deg,blue, yellow);
+            /* background-color: blue; */
+        }
         h2{ color: orange }
-        p { color: red;}
+        p { color: red; 
+            font-family: "Edu AU VIC WA NT Pre", cursive;
+            font-style: italic;
+            font-size: 800;
+            line-height: 20px;
+        }
+
         #avanza{ color:greenyellow}
         .mobil{ color : blue}
         .mobil2 { border: 1px solid red; color: green;}
@@ -18,14 +32,44 @@
         .text-indent { 
             text-indent: 2rem;
         }
+
+        .text-indent::first-letter {
+            font-size: 40px;
+            font-weight: bolder;
+        }
         
         .box { 
             width: 200px;
             height: 200px;
             background-color: pink;
-            float: left;
+            /* float: left; */
             /* margin-bottom: 10px; */
             margin: 0 10px 10px 0;
+            border-radius: 50%;
+        }
+
+        .box2 { 
+            width: 200px;
+            height: 200px;
+            background-color: darkkhaki;
+            position: relative;
+            top:20px
+        }
+
+        .box3 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            top:20px;
+        }
+
+        .box4 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            position: fixed;
+            top:240px;
         }
 
     </style>
@@ -48,8 +92,11 @@
     Unde amet debitis possimus cumque, totam sequi consectetur dignissimos aperiam sint! Ipsa, vitae exercitationem eius consequatur earum corrupti quaerat sit est sapiente iusto. Assumenda architecto soluta nobis a. Obcaecati, quae!
     In exercitationem sint nam nobis, sed cupiditate saepe! Tenetur perspiciatis nam repudiandae culpa, quibusdam placeat provident corporis voluptas autem laborum tempora ullam ex sit quas, quae architecto dignissimos ad soluta.</p>
 
+    <div class="box"> ABC </div>
+    <div class="box2"></div>
     <div class="box"></div>
-    <div class="box"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
     <div class="box"></div>
     <div style="clear: both;"></div>
 

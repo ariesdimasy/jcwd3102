@@ -4,9 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> My Page </title>
+    <style>
+        * { margin: 0; padding: 0;}
+        .container{
+            background-color: brown;
+            height: 100vh;
+        }
+
+        .box { 
+            width: 800px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+
+        .sub-box {
+            width: 50%;
+            height: 50%;
+            background-color: chocolate;
+            /* margin-left: auto;
+            margin-right: auto; */
+            margin: 0 auto 0 auto;
+            padding: 10px 20px 30px 40px;
+        }
+    </style>
 </head>
 <body>
-    <h1> My Page </h1>
-    <hr>
+    <div class="container">
+        <h1> My Page </h1>
+        <hr>
+        <div class="box">
+            <div class="sub-box" >
+                <span style="background-color: burlywood;">Aries Dimas</span>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
