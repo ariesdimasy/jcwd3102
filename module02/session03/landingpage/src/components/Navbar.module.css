@@ -1,0 +1,12 @@
+.navbar {
+    height: 50px;
+    background-color: white;
+    /* border: 1px solid black; */
+}
+
+.logo { 
+    font-size: 32px;
+    line-height: 50px;
+    color: lightgray;
+    text-decoration: none;
+}

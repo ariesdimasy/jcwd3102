@@ -47,7 +47,16 @@
         <div class="kotak6"> 6 </div>
         <div class="kotak7"> 7 </div>
         <div class="kotak8"> 8 </div>
-        <div class="kotak9"> 9 </div>
+        <div class="kotak9" id="9"> 9 </div>
     </div>
+    <button onclick="changeMe()"> Change me </button>
+    <script>
+        function changeMe(){
+            let kotak9 = document.getElementById("9")
+            // alert(kotak9.innerHTML)
+            kotak9.innerHTML = "<h1> Hello world </h1>"
+        }
+        
+    </script>
 </body>
 </html>

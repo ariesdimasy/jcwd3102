@@ -19,6 +19,7 @@
             | <a href="./contact.html"> Contact</a>
         <hr />
     </nav>
+    <h1> Contact <i>Form</i> </h1>
     <form action="" method="get" >
         <fieldset>
             <legend> ACCOUNT SETTING </legend>
@@ -43,8 +44,10 @@
         </div>
         <div>
             <label>Desc : </label>
-            <textarea name="desc" rows="20" cols="100" ></textarea>
+            <textarea name="desc" rows="20" cols="100" onkeyup="descType()" ></textarea>
         </div>
+
+        <div id="response"></div>
         <div>
             <label>Birthdate : </label>
             <input type="date" name="date" />
@@ -88,7 +91,21 @@
         <button type="submit"> Login </button>
         <input type="submit" value="Login Juga">
         <button type="button" onclick="alert('Hello world')"> Just Button</button>
-        <input type="button" value="Just Button Juga">
+        <input type="button" onclick="getValues()" value="Just Button Juga">
     </form>
+    <script>
+        function getValues(){
+            let desc = document.getElementsByName("desc")
+            alert(desc[0].value)
+        }
+
+        function descType() { 
+            let desc = document.getElementsByName("desc")
+            let response = document.getElementById("response")
+
+            response.innerHTML = desc[0].value
+        }
+    </script>
+    <script src="./script.js" ></script>
 </body>
 </html>

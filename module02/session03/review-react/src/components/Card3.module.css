@@ -1,0 +1,9 @@
+.card {
+    height: 250px;
+    width: 250px;
+    background-color: cornflowerblue;
+}
+
+.my-font {
+    font-family: 'Courier New', Courier, monospace;
+}
