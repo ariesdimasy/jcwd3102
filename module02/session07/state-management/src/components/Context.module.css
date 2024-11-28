@@ -1,0 +1,10 @@
+.light {
+    background-color: bisque;
+    border: 1px solid black;
+    color: darkblue;
+}
+
+.dark {
+    background-color: brown;
+    color: azure;
+}
