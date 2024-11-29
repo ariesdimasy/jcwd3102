@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Aries Dimas",
+      "age": 19,
+      "address": "Parung Panjang",
+      "title": "Digital Marketer"
+    },
+    {
+      "id": "2",
+      "name": "Rian D",
+      "age": 19,
+      "address": "Surabaya",
+      "title": "Radilogy Engineer"
+    },
+    {
+      "id": "7638",
+      "name": "Fariz",
+      "age": 17,
+      "title": "Front End Developer",
+      "address": "jl. pramuka"
+    },
+    {
+      "id": "9df9",
+      "name": "newfeed",
+      "title": "Back end developer",
+      "age": 16,
+      "address": "cvfsfgsfgsdff"
+    },
+    {
+      "id": "700f",
+      "name": "maulana",
+      "title": "DevOps",
+      "age": 19,
+      "address": "jl. pinang tangsel"
+    }
+  ]
+}
