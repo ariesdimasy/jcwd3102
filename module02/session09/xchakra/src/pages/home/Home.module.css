@@ -1,0 +1,14 @@
+.hero-section {
+    background-color: bisque;
+    /* background-image: ; */
+}
+
+.subhero { 
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.subhero h1 { 
+    margin-bottom: 20px;
+}
+
