@@ -3,13 +3,13 @@
 }
 
 .menu-list a {
-
-    width: 80px;
+    text-align: center;
+    width: 100px;
     height: 50px;
     line-height: 50px;
-    margin: 0 10px;
+    
 }
 
 .menu-list a:hover {
-    background-color: 'bluesky';
+    background-color: rgb(67, 85, 245);
 }

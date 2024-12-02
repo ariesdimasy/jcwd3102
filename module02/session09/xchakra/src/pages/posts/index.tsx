@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { Button, Card } from "@chakra-ui/react"
+import { Button, Card, Textarea } from "@chakra-ui/react"
 
 export default function Posts(){
 
@@ -11,7 +11,7 @@ export default function Posts(){
     const getPosts = async () => {
         try {
 
-            const postList = await axios.get("http://localhost:4550/posts")
+            const postList = await axios.get("http://localhost:4550/posts?_sort=created_at,-views")
             const posts = postList.data
             setPosts(posts)
 
@@ -30,6 +30,7 @@ export default function Posts(){
 
             if(postTweet){
                 alert("post success")
+                setPost('')
                 getPosts()
             }
         } catch(err) {
@@ -41,17 +42,21 @@ export default function Posts(){
         getPosts()
     },[])
 
-    return (<div>
-        <textarea rows={5} cols={100} name="post" onChange={(e) => setPost(e.target.value)}  >{post}</textarea>
-        <Button bgColor={'blue.500'} color='white' onClick={() => handlePost()}> Posting </Button>
+    return (<div style={{ width: '50%', margin:'0 auto'}}>
+        
+        <Textarea rows={5} style={{ 'width':'100%', padding:"10px"}} name="post" onChange={(e) => setPost(e.target.value)}  >{post}</Textarea>
+        <div>
+            <Button w={'100%'} bgColor={'blue.500'} color='white' onClick={() => handlePost()}> Posting </Button>
+        </div>
         {posts?.map((item:any, index) => {
             return(
-                <Card.Root key={index} margin={"20px 10px"} padding={"10px"}>
+                <Card.Root key={index} margin={"20px 0"} padding={"10px"}>
                     <Card.Body >
                         {item.post}
                     </Card.Body>
+                    <hr />
                     <Card.Footer>
-                        {item.created_at}
+                        {new Date(item.created_at).toLocaleDateString()}
                     </Card.Footer>
                 </Card.Root>
             )
