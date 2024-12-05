@@ -33,9 +33,9 @@ export default function Home() {
         <div>
           {blogs.map((item:any, index) => {
             return(<div key={index} style={{ margin:"0 0 10px 0"}}>
-              <div><strong>{item?.fields?.title}</strong></div>
+              <div><a href={"/blog-detail/"+item?.id}><strong>{item?.fields?.title}</strong></a></div>
               <hr></hr>
-              <div>{item?.image_url && (<img src={item?.image_url} height={100} width={300} alt={item?.fields?.title} />)}</div>
+              <div>{item?.image_url && (<img src={item?.image_url} height={100} width={300} alt={item?.fields?.title}  />)}</div>
               <Interweave content={documentToHtmlString(item?.fields?.body)} />
             </div>)
           })}
