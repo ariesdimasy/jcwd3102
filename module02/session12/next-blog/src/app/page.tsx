@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { documentToHtmlString  } from '@contentful/rich-text-html-renderer';
+import { Interweave } from 'interweave';
 import { getBlogs } from "./../api/blog"
 import Image from "next/image";
 
@@ -31,7 +32,12 @@ export default function Home() {
        
         <div>
           {blogs.map((item:any, index) => {
-            return(<li key={index}>{item?.fields?.title} - {documentToHtmlString(item?.fields?.body)}</li>)
+            return(<div key={index} style={{ margin:"0 0 10px 0"}}>
+              <div><strong>{item?.fields?.title}</strong></div>
+              <hr></hr>
+              <div>{item?.image_url && (<img src={item?.image_url} height={100} width={300} alt={item?.fields?.title} />)}</div>
+              <Interweave content={documentToHtmlString(item?.fields?.body)} />
+            </div>)
           })}
         </div>
         
