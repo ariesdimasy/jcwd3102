@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Dimas",
+      "gender": "male",
+      "title": "Digital Marketer"
+    }
+  ],
+  "expenses": [
+    {
+        "id": 23,
+        "title": "gajian",
+        "nominal": 45500000,
+        "category": "salary",
+        "type": "income",
+        "date": "2024-12-15 15:30:00"
+    },
+    {
+        "id": 24,
+        "title": "makan bakso",
+        "nominal": 15000,
+        "category": "food",
+        "type": "expense",
+        "date": "2024-12-10 10:30:00"
+    },
+    {
+        "id": 25,
+        "title": "gajian",
+        "nominal": 8900000,
+        "category": "salary",
+        "type": "income",
+        "date": "2024-12-17 09:30:00"
+    }
+  ],
+  "categories": [
+    "food",
+    "salary",
+    "transport"
+  ]
+}

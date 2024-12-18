@@ -18,7 +18,7 @@ interface InitialValues {
 
 export default function LoginForm(){
 
-    const navidate = useNavigate();
+    const navigate = useNavigate();
 
     const formik = useFormik({
         initialValues:{
@@ -46,7 +46,7 @@ export default function LoginForm(){
                     name:res.name,
                     email:res.email,
                 }))
-                navidate("/posts")
+                navigate("/posts")
             } else {
                 alert("email or password invalid")
             }

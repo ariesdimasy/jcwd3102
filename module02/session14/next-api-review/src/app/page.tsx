@@ -18,7 +18,7 @@ export default function Home() {
 
   useEffect(() => {
     handleGetProducts()
-  },[])
+  },[]) // pertama kali halaman di load
 
   return (
     <>
@@ -28,8 +28,11 @@ export default function Home() {
       <div className="grid grid-cols-1 grid-cols-4">
       {products.map( (item, index) => {
         return (<Card.Root className="justify-item-center" key={index} variant={'elevated'} width={'250px'} margin={'20px'}>
-          <Card.Header>{item?.product_name} 
+          <Card.Header className="flexbox justify-content-between align-items-center">
+            <div style={{  width:'150px'}}>{item?.product_name} </div>
             <Button 
+              size={'xs'}
+              float={'right'}
               w={'20px'} 
               bgColor={'red.500'} 
               color={'white'}
@@ -43,8 +46,9 @@ export default function Home() {
               }}
             > X </Button>
           </Card.Header>
+          <img src={item.image != "" ? item.image : "https://via.placeholder.com/150"} alt={item.product_name} />
           <Card.Body>
-            <img src={item.image != "" ? item.image : "https://via.placeholder.com/150"} alt={item.product_name} />
+           
             <div>Price : {item?.price}</div>
             <div>Stock : {item?.stock}</div>
           </Card.Body>

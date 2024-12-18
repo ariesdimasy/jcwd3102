@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "T-shirt blue L",
+      "stock": 30,
+      "price": 30
+    },
+    {
+      "id": 2,
+      "name": "iphone 13",
+      "price": 10000000,
+      "stock": 12
+    },
+    {
+      "id": 3,
+      "name": "iphone 15",
+      "price": 20000000,
+      "stock": 567
+    }
+  ]
+}

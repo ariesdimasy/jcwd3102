@@ -1,22 +1,26 @@
 "use client"
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";// 
 import { documentToHtmlString  } from '@contentful/rich-text-html-renderer';
 import { Interweave } from 'interweave';
-import { getBlogs } from "./../api/blog"
+import { getBlogs } from "./../api/blog" // 
 import Image from "next/image";
 
 export default function Home() {
 
-  const [blogs, setBlogs] = useState([])
+  //const [search, setSearch] = useState("") 
+  const [blogs, setBlogs] = useState([]) // buat menampung darta dari API contentful 
 
+  // method untuk memanggil getBlogs dari api/blog 
   const handleGetBlogsData = async () => {
-    const data = await getBlogs()
+    const data = await getBlogs() // menampung, array of object dari content model blog 
     setBlogs(data)
   }
 
+ 
+
   useEffect(() => {
     handleGetBlogsData()
-  })
+  },[])
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -29,16 +33,20 @@ export default function Home() {
           height={38}
           priority
         />
-       
+      
         <div>
-          {blogs.map((item:any, index) => {
+          {blogs.map((item:any, index:number) => {
+            console.log("hello => ", item?.id)            
             return(<div key={index} style={{ margin:"0 0 10px 0"}}>
-              <div><a href={"/blog-detail/"+item?.id}><strong>{item?.fields?.title}</strong></a></div>
+              <div><a href={"/blog-detail/"+item.id}><strong>{item?.fields?.title}</strong></a></div>
               <hr></hr>
               <div>{item?.image_url && (<img src={item?.image_url} height={100} width={300} alt={item?.fields?.title}  />)}</div>
               <Interweave content={documentToHtmlString(item?.fields?.body)} />
             </div>)
           })}
+        </div>
+        <div>
+          Name : {process.env.NEXT_PUBLIC_MY_NAME}
         </div>
         
       </main>

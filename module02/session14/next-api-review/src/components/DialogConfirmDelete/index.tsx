@@ -30,11 +30,11 @@ export default function DialogConfirmDelete(props:IDialogConfirmDelete){
         alert(JSON.stringify(res))
     }
     
-    return (<DialogRoot size={'sm'} open={props.open} >
+    return (<DialogRoot size={'sm'} open={props.open} onOpenChange={props.onOpenChange} >
         
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Dialog Title</DialogTitle>
+            <DialogTitle>Delete Confirmation</DialogTitle>
           </DialogHeader>
           <DialogBody>
             <p>
@@ -44,15 +44,19 @@ export default function DialogConfirmDelete(props:IDialogConfirmDelete){
           <DialogFooter>
             <DialogActionTrigger asChild>
               <Button variant="outline" onClick={() => props.onOpenChange(!props.open)}>Cancel</Button>
-              <Button 
-                bgColor={'red.500'} 
-                color={'white'} 
-                onClick={() => { 
-                    handleDeleteProduct()
-                    props.onOpenChange(false)
-                    props.handleGetProducts()
-                }}> Delete 
-              </Button>
+              
+            </DialogActionTrigger>
+            <DialogActionTrigger asChild>
+                <Button
+                    px={"20px"}
+                    bgColor={'red.500'} 
+                    color={'white'} 
+                    onClick={() => { 
+                        handleDeleteProduct()
+                        props.onOpenChange(false)
+                        props.handleGetProducts()
+                    }}> Delete 
+                </Button>
             </DialogActionTrigger>
           </DialogFooter>
           <DialogCloseTrigger />

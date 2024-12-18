@@ -6,13 +6,13 @@ import { documentToHtmlString  } from '@contentful/rich-text-html-renderer';
 import { Interweave } from 'interweave';
 import { getBlogDetail } from "./../../../api/blog"
 
-export default function BlogDetail({ params }:{ params:{ id:string }}){
-    const { id } = React.use(params)
+export default function BlogDetail({ params }:{ params:{ blogid:string }}){
+    const { blogid } = React.use(params)
     const [blog, setBlog] = useState<any>(null)
 
     const handleGetBlogDetail = async () => {
         
-        const blogDetail = await getBlogDetail(id)
+        const blogDetail = await getBlogDetail(blogid)
         console.log("blogDetail = ", blogDetail)
         setBlog(blogDetail)
     }
