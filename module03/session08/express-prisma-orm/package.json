@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "@prisma/client": "^6.2.0",
+    "@types/express": "^5.0.0",
+    "@types/nodemon": "^1.19.6",
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9",
+    "prisma": "^6.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  },
+  "name": "express-prisma-orm",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.ts",
+    "start": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
