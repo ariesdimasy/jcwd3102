@@ -3,11 +3,15 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient()
 
+type User = { 
+    email:string
+    role:string
+}
+
 export const getPosts = async (req:Request, res:Response) => {
     try{
 
         const { keyword } = req.query
-      
 
         const posts = await prisma.post.findMany()
 
@@ -29,11 +33,13 @@ export const getPosts = async (req:Request, res:Response) => {
 export const createPost = async (req:Request, res:Response) => {
     try {
 
-        const { content, image, user_id } = req.body 
+        const { content, image } = req.body 
 
-        const checkUser = await prisma.user.findUnique({
+        const user = req.user as User
+
+        const checkUser = await prisma.user.findFirst({
             where:{
-                id:user_id
+                email:user?.email
             }
         })
 
@@ -50,7 +56,7 @@ export const createPost = async (req:Request, res:Response) => {
             data:{
                 content:content,
                 image:image,
-                user_id:user_id
+                user_id:checkUser.id
             }
         })
 

@@ -22,6 +22,7 @@ model User {
   updated_at  DateTime @updatedAt
   posts       Post[]
   comments    Comment[]
+  role        String @db.VarChar(10) @default("user")
 
   @@map("users")
 }
