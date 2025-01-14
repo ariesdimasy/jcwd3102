@@ -20,6 +20,8 @@ export default class SampleRouter {
         this.router.post("/send-email", this.sampleController.sendEmail)
         this.router.post("/",
             uploader("IMG","/images").single("file"),
+            sampleValidate,
+            
         // [
         //     body("item").notEmpty().withMessage("Name must be filled"),
         //     body("code").notEmpty().withMessage("code must be filled"),
