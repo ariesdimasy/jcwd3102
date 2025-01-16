@@ -5,6 +5,7 @@ type User = {
 
 declare namespace Express { 
     export interface Request{
-        user?: User 
+        user?: User
+        file?: any
     }
 }

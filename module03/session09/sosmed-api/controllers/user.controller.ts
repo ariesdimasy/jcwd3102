@@ -56,6 +56,39 @@ export const getUserDetail = async (req:Request, res:Response) => {
     }
 }
 
+export const updateUserProfile = async(req: Request, res:Response) => {
+    try {
+
+        const { id } = req.params
+        const { name , email } = req.body 
+        const { file } = req
+
+        const updateProfile = prisma.user.update({
+            data:{
+                name:name,
+                email:email,
+                image:file?.filename
+            },
+            where:{
+                id:Number(id)
+            }
+        })
+
+        res.status(200).send({
+            status:"success",
+            message:"success update profile",
+            data:updateProfile
+        })
+
+    } catch(err){
+        res.status(500).json({
+            status:"error",
+            message:JSON.stringify(err),
+            data:null
+        })
+    }
+}
+
 export const getUserDetailPosts = async (req:Request, res:Response) => {
     try {
 

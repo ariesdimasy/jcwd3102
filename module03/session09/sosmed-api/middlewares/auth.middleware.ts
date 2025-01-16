@@ -1,6 +1,10 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
-import { User } from "../types/user.type"
+
+export type User = { 
+    email:string
+    role:string
+}
 
 export const  verifyToken = async (req:Request, res:Response, next:NextFunction) => {
     try{
