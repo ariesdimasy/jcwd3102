@@ -35,6 +35,9 @@ export const loginProcess = async (req:Request, res:Response) => {
                 status:"success",
                 message:"login success",
                 data:{
+                    id:findUser?.id,
+                    name:findUser?.name,
+                    email:findUser?.email,
                     token:token
                 }
             })

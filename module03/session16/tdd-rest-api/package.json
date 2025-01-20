@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "@prisma/client": "^6.2.1",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.14",
+    "@types/nodemon": "^1.19.6",
+    "@types/supertest": "^6.0.2",
+    "axios": "^1.7.9",
+    "express": "^4.21.2",
+    "jest": "^29.7.0",
+    "jest-mock-extended": "^4.0.0-beta1",
+    "nock": "^13.5.6",
+    "nodemon": "^3.1.9",
+    "prisma": "^6.2.1",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "name": "tdd-rest-api",
+  "version": "1.0.0",
+  "main": "jest.config.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

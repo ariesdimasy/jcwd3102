@@ -10,6 +10,7 @@ const port = 5678
 
 app.use(cors())
 app.use(json())
+app.use(express.static('public'))
 
 app.use("/api/auth",authRouter)
 app.use("/api/users",userRouter)
