@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Prisma } from "@prisma/client";
 
 const prisma = new PrismaClient()
 
@@ -13,7 +13,21 @@ export const getPosts = async (req:Request, res:Response) => {
 
         const { keyword } = req.query
 
-        const posts = await prisma.post.findMany()
+        const posts = await prisma.post.findMany({
+            include:{
+                user:{
+                    select:{
+                        name:true,
+                        email:true,
+                        image:true,
+                        role:true
+                    }
+                }
+            },
+            orderBy:{
+                created_at:'desc'
+            }
+        })
 
         res.status(200).json({
             status:"success",
@@ -33,9 +47,11 @@ export const getPosts = async (req:Request, res:Response) => {
 export const createPost = async (req:Request, res:Response) => {
     try {
 
-        const { content, image } = req.body 
+        const { content } = req.body 
 
-        const user = req.user as User
+        const user = req?.user as User
+
+        console.log("user => ", user)
 
         const checkUser = await prisma.user.findFirst({
             where:{
@@ -55,11 +71,11 @@ export const createPost = async (req:Request, res:Response) => {
         const insertPost = await prisma.post.create({
             data:{
                 content:content,
-                image:image,
-                user_id:checkUser.id
+                user_id:checkUser.id,
+                image:''
             }
         })
-
+       
         res.status(201).json({
             status:"success",
             message:"create post success",
@@ -67,6 +83,10 @@ export const createPost = async (req:Request, res:Response) => {
         })
 
     } catch(err){
+        if (err instanceof Prisma.PrismaClientKnownRequestError) {
+            console.log(" error code : ", err.code)
+        }
+
         res.status(500).json({
             status:"error",
             message:JSON.stringify(err),

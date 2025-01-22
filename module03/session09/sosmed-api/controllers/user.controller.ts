@@ -60,10 +60,12 @@ export const updateUserProfile = async(req: Request, res:Response) => {
     try {
 
         const { id } = req.params
-        const { name , email } = req.body 
+        const { name , email } = req.body
         const { file } = req
 
-        const updateProfile = prisma.user.update({
+        console.log("file => ", file)
+
+        const updateProfile = await prisma.user.update({
             data:{
                 name:name,
                 email:email,
@@ -73,6 +75,8 @@ export const updateUserProfile = async(req: Request, res:Response) => {
                 id:Number(id)
             }
         })
+
+        console.log(" ===> ",updateProfile)
 
         res.status(200).send({
             status:"success",
